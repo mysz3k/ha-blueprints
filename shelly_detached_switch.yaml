@@ -1,0 +1,27 @@
+blueprint:
+  name: Shelly Detached Switch
+  description: Toggles a light when a Shelly detached switch is activated
+  domain: automation
+  input:
+    shelly_entity:
+      name: Shelly Detached Switch
+      selector:
+        entity:
+          domain: sensor
+    light_target:
+      name: Light
+      selector:
+        target:
+          entity:
+            domain: light
+            
+mode: single
+
+trigger:
+  platform: state
+  entity_id: !input shelly_entity
+
+action:
+  - alias: "Toggle the target light"
+    service: light.toggle
+    target: !input light_target
