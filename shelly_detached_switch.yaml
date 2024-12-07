@@ -7,7 +7,7 @@ blueprint:
       name: Shelly Detached Switch
       selector:
         entity:
-          domain: switch
+          domain: sensor
     light_target:
       name: Light
       selector:
